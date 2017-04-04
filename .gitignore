@@ -1,2 +1,24 @@
 
 *.xml
+
+php/updateSeat.php
+
+php/adminCheck.php
+
+php/db.php
+
+php/deleteStudent.php
+
+php/editInfo.php
+
+php/loadInfo.php
+
+php/moveSeat.php
+
+php/promInfo.php
+
+php/promList.php
+
+php/updateSeat.php
+
+index.php

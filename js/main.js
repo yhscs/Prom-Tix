@@ -79,7 +79,7 @@ function validate()
 
 	var guestInfo = $("[name='Field90']:checked").val();
 
-	if (guestInfo == 'Non-YHS')
+	if (guestInfo == 'Guest')
 	{
 		var guestFirst = $('#Field16').val();
 		var guestLast = $('#Field17').val();
