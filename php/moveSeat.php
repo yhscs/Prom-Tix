@@ -38,6 +38,8 @@
 			}
 		}
 		
+		$finalEmptySeats = array();
+		
 		// Find seats with no guests
 		for ($i=0;$i<$tableCount;$i++)
 		{
@@ -58,15 +60,15 @@
 					}			   
 				}
 
-				if ($foundEmpty === false)
-					array_splice($emptySeats, array_search($tables[$i]['Table'].'-'.$chair, $emptySeats), 1);
+				if ($foundEmpty === true && array_search($tables[$i]['Table'].'-'.$chair, $emptySeats) !== false)
+					array_push($finalEmptySeats, $tables[$i]['Table'].'-'.$chair);
 			}
 		}
 	}
 
 	// Output empty seats
-	for ($i=0; $i<count($emptySeats);$i++)
+	for ($i=0; $i<count($finalEmptySeats);$i++)
 	{
-		echo $emptySeats[$i].'##';
+		echo $finalEmptySeats[$i].'##';
 	}
 ?>
