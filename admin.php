@@ -34,6 +34,7 @@
             <li>
             <div id="adminCheck" name="adminCheck" class="btTxt submit button">View Prom Tables</div></div>
             <div id="adminList" name="adminList" class="btTxt submit button">View Prom List</div></div>
+            <div id="adminShirts" name="adminShirts" class="btTxt submit button">View Shirt Sizes</div></div>
             </li>
     </ul>
         </form>

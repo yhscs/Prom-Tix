@@ -1,5 +1,6 @@
 $('#adminCheck').click(function(){adminCheck('table');});
 $('#adminList').click(function(){adminCheck('list');});
+$('#adminShirts').click(function(){adminCheck('shirts');});
 $('.table').click(function(){bigTable($(this));});
 
 var receipt = '';
@@ -263,6 +264,8 @@ function adminCheck(type)
 			showInfo(pass);
 		else if (type == 'list')
 			showList(pass);
+		else if (type == 'shirts')
+			showShirts(pass);
 	});
 }
 
@@ -278,6 +281,14 @@ function showInfo(pass)
 function showList(pass)
 {
 	$.post("php/promList.php", {pass: pass}, function(data){
+		$('#info').html(data);
+		$('#info').show();
+	});
+}
+
+function showShirts(pass)
+{
+	$.post("php/shirts.php", {pass: pass}, function(data){
 		$('#info').html(data);
 		$('#info').show();
 	});
