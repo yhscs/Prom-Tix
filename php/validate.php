@@ -7,7 +7,7 @@
 		if ($sanitized !== $field)
 			exit('Bad input detected in $fieldContext. Please double check that you inputted this field correctly.');
 		
-		return field
+		return $field;
 	}
 
 	// Determine if name and ID match
