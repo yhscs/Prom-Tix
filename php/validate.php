@@ -2,9 +2,9 @@
 	function verifySanitization($fieldName, $fieldContext)
 	{
 		$field = trim($_POST[$fieldName]);
-		$sanitized = htmlspecialchars($field);
+		$sanitized = htmlspecialchars($field, ENT_QUOTES | ENT_HTML401, 'UTF-8');
 		
-		if (strpos($sanitized, '&') !== false) // Does this contain any special encoding characters?
+		if (strpos($sanitized, '&') !== false || strpos($sanitized,'%') !== false)
 			exit('Illegal input detected in $fieldContext');
 		
 		return $sanitized
