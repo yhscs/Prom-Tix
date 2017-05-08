@@ -1,4 +1,13 @@
 <?php
+	function verifySanity($fieldName)
+	{
+		$field = trim($_POST[$fieldName]);
+		$sanitized = htmlspecialchars($field);
+		
+		if (strpos($sanitized, '&') !== false) // Does this contain any special encoding characters?
+			exit('Illegal input for $fieldName');
+	}
+
 	// Determine if name and ID match
 	require_once('db.php');
 	$first = trim($_POST['first']);
@@ -21,21 +30,10 @@
 			exit('Your ID number was incorrect.');
 	}
 	
-	$first = $_POST['guestFirst'];
-	$last = $_POST['guestLast'];
-	$payerFirst = $_POST['payerFirst'];
-	$payerLast = $_POST['payerLast'];
-	if (strpos($first,'##') !== false)
-		exit('You used illegal characters in the guest name');
-	else if (strpos($last,'##') !== false)
-		exit('You used illegal characters in the guest name');
-	
-	$first = $_POST['payerFirst'];
-	$last = $_POST['payerLast'];
-	if (strpos($first,'##') !== false)
-		exit('You used illegal characters in the name of the person paying.');
-	else if (strpos($last,'##') !== false)
-		exit('You used illegal characters in the name of the person paying.');
+	verifySanity('guestFirst');
+	verifySanity('guestLast');
+	verifySanity('payerFirst');
+	verifySanity('payerLast');
 
 	exit('OK');
 ?>
