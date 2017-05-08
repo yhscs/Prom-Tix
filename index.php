@@ -50,6 +50,7 @@
         
             <header id="header" class="info">
                 <h1>Yorkville High School Prom</h1>
+                <h2>Security Analysis by Max Gartung, Class of 2017</h2>
                 <div>All YHS students must purchase their tickets individually<br>ID is required at prom<br>No refunds</div>
             </header>
             
