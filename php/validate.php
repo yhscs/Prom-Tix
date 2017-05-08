@@ -2,12 +2,12 @@
 	function verifySanitization($fieldName, $fieldContext)
 	{
 		$field = trim($_POST[$fieldName]);
-		$sanitized = htmlspecialchars($field, ENT_QUOTES | ENT_HTML401, 'UTF-8');
+		$sanitized = preg_replace("/[^a-zA-Z0-9]+/", "", $field);
 		
-		if (strpos($sanitized, '&') !== false || strpos($sanitized,'%') !== false)
-			exit('Illegal input detected in $fieldContext');
+		if ($sanitized !== $field)
+			exit('Bad input detected in $fieldContext. Please double check that you inputted this field correctly.');
 		
-		return $sanitized
+		return field
 	}
 
 	// Determine if name and ID match
